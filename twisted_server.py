@@ -106,7 +106,8 @@ def process_protocol_1_0(json_data):
                 if each_message[M.F.Gen.MsgID] == M.SS_ESB.E.NoFurtherMessages:
                     print "\tNo further messages."
                     continue
-                
+    with open('esbox.json', 'w') as outfile:
+    json.dump(json_data, outfile)
                 # Un-comment the following section if you want to be able to process V1.0 SendLatestReadings messages (you shouldn't need to do this unless using pre-8834 ESBox releases)
                 '''
                 if (each_message[M.F.Gen.MsgID] == M.SS_ESB.E.SendLatestReadings and    # Check for latest readings report
